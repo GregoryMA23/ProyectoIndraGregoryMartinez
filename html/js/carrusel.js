@@ -1,21 +1,16 @@
-const slides = document.querySelectorAll(".slide");
-const prevButton = document.getElementById("prev");
-const nextButton = document.getElementById("next");
-let index = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelector(".slides");
+  const images = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
 
-function showSlide() {
-  const container = document.querySelector(".carousel-container");
-  container.style.transform = `translateX(-${index * 100}%)`;
-}
+  let index = 0;
 
-nextButton.addEventListener("click", () => {
-  index = (index + 1) % slides.length;
-  showSlide();
+  function showSlide(i) {
+    index = (i + images.length) % images.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prevBtn.addEventListener("click", () => showSlide(index - 1));
+  nextBtn.addEventListener("click", () => showSlide(index + 1));
 });
-
-prevButton.addEventListener("click", () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide();
-});
-
-showSlide();
