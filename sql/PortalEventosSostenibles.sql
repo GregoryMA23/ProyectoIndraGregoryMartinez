@@ -27,7 +27,7 @@ CREATE TABLE se_inscribe (
     usuario VARCHAR(100),
     evento VARCHAR(100),
     fecha date,
-    PRIMARY KEY (usuario, evento),
+    PRIMARY KEY (usuario, evento,fecha),
     FOREIGN KEY (usuario) REFERENCES Usuario(correo),
     FOREIGN KEY (evento) REFERENCES Evento(nombre)
 )
@@ -36,7 +36,7 @@ CREATE TABLE participa (
     usuario VARCHAR(100),
     evento VARCHAR(100),
     fecha date,
-    PRIMARY KEY (usuario, evento),
+    PRIMARY KEY (usuario, evento,fecha),
     FOREIGN KEY (usuario) REFERENCES Usuario(correo),
     FOREIGN KEY (evento) REFERENCES Evento(nombre)
 )
