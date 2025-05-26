@@ -59,16 +59,60 @@ body {
   right: 10px;
 }
 
+/* Menú principal mejorado */
 .menu {
   list-style-type: none;
   display: flex;
-  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: #8ef0af;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
 
 .opciones {
-  padding-right: 10px;
-  padding-left: 3px;
-  margin-right: 40px;
+  margin: 0 25px;
+  position: relative;
+}
+
+.menu a {
+  display: block;
+  color: #226644;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 16px 18px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.menu a:hover,
+.menu a.activo {
+  background: #b6f5d0;
+  color: #145c2c;
+}
+
+.menu a::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  background: #226644;
+  border-radius: 2px;
+  transition: width 0.3s;
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.menu a:hover::after,
+.menu a.activo::after {
+  width: 60%;
 }
 
 nav {
@@ -156,4 +200,145 @@ h3 {
   flex-direction: row;
   justify-content: center;
   border: #8ef0af 4px solid;
+}
+
+.tabla-eventos {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  border: 3px solid #8ef0af; /* Borde principal igual que el menú */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.tabla-eventos th,
+.tabla-eventos td {
+  border: 3px solid #8ef0af; /* Borde interno igual que el menú */
+  padding: 10px 8px;
+  text-align: left;
+  background: #f6fff9;
+}
+
+.tabla-eventos th {
+  background: #8ef0af;
+  color: #226644;
+}
+
+.tabla-eventos tr:nth-child(even) {
+  background: #eafff2;
+}
+
+/* Tarjetas de eventos */
+.tarjetas-eventos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.tarjeta-evento {
+  background: #f6fff9;
+  border: 3px solid #8ef0af;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(34, 102, 68, 0.07);
+  width: 320px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tarjeta-evento:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(34, 102, 68, 0.15);
+  border-color: #226644;
+}
+
+.tarjeta-evento img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.tarjeta-contenido {
+  padding: 18px 16px 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tarjeta-titulo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #226644;
+  margin-bottom: 4px;
+}
+
+.tarjeta-fecha {
+  font-size: 1rem;
+  color: #145c2c;
+  margin-bottom: 2px;
+}
+
+.tarjeta-ubicacion {
+  font-size: 0.98rem;
+  color: #4e7c5a;
+  margin-bottom: 6px;
+}
+
+.tarjeta-descripcion {
+  font-size: 0.97rem;
+  color: #333;
+}
+
+@media (max-width: 700px) {
+  .tarjetas-eventos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tarjeta-evento {
+    width: 98vw;
+  }
+}
+
+/* Imagen superior en la página de cada evento */
+.evento-img {
+  display: block;
+  margin: 30px auto 20px auto;
+  max-width: 600px;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid #8ef0af;
+  box-shadow: 0 2px 8px rgba(34, 102, 68, 0.07);
+}
+
+/* Botón volver */
+.boton-volver {
+  display: inline-block;
+  background: #8ef0af;
+  color: #226644;
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: 2px solid #226644;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin-top: 10px;
+}
+.boton-volver:hover {
+  background: #b6f5d0;
+  color: #145c2c;
+  border-color: #145c2c;
 }
