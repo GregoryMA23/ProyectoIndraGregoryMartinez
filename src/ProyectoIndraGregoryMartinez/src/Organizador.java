@@ -53,16 +53,6 @@ public class Organizador {
     }
 
     /**
-     * Crea un nuevo evento y lo añade al mapa de eventos organizados si no existe ya.
-     * @param evento Evento a crear.
-     */
-    public void crearEvento(Evento evento) {
-        if (evento != null && !eventosOrganizados.containsKey(evento.getNombre())) {
-            eventosOrganizados.put(evento.getNombre(), evento);
-        }
-    }
-
-    /**
      * Crea un nuevo evento, lo añade al mapa de eventos organizados y lo registra en el portal.
      * @param evento Evento a crear.
      * @param portal Referencia al portal donde registrar el evento.
